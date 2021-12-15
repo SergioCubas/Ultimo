@@ -19,12 +19,12 @@ namespace WCF_Reservas
         public string tipo_comprobante { get; set; }
         public string num_comprobante { get; set; }
         public string medio_pago { get; set; }
-        public Nullable<System.DateTime> F_Registro { get; set; }
+        public Nullable<System.DateTime> F_registro { get; set; }
         public Nullable<System.DateTime> F_Modificacion { get; set; }
-        public Nullable<int> estado { get; set; }
+        public string documento_pago { get; set; }
         public Nullable<int> idPasajero { get; set; }
         public Nullable<int> idReserva { get; set; }
-        public string documento_pago { get; set; }
+        public Nullable<int> estado { get; set; }
     
         public virtual Tb_pasajero Tb_pasajero { get; set; }
         public virtual Tb_reserva Tb_reserva { get; set; }

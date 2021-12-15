@@ -94,12 +94,12 @@
           <ScalarProperty Name="tipo_comprobante" ColumnName="tipo_comprobante" />
           <ScalarProperty Name="num_comprobante" ColumnName="num_comprobante" />
           <ScalarProperty Name="medio_pago" ColumnName="medio_pago" />
-          <ScalarProperty Name="F_Registro" ColumnName="F_Registro" />
+          <ScalarProperty Name="F_registro" ColumnName="F_registro" />
           <ScalarProperty Name="F_Modificacion" ColumnName="F_Modificacion" />
-          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="documento_pago" ColumnName="documento_pago" />
           <ScalarProperty Name="idPasajero" ColumnName="idPasajero" />
           <ScalarProperty Name="idReserva" ColumnName="idReserva" />
-          <ScalarProperty Name="documento_pago" ColumnName="documento_pago" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -348,6 +348,7 @@
           <ScalarProperty Name="Imagen_Destino" ColumnName="Imagen Destino" />
           <ScalarProperty Name="Fecha_Llegada" ColumnName="Fecha Llegada" />
           <ScalarProperty Name="Estado_Reserva" ColumnName="Estado Reserva" />
+          <ScalarProperty Name="Estado_Pago" ColumnName="Estado Pago" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
@@ -459,6 +460,8 @@
           <ScalarProperty Name="Ciudad_Destino" ColumnName="Ciudad Destino" />
           <ScalarProperty Name="Imagen_Destino" ColumnName="Imagen Destino" />
           <ScalarProperty Name="Fecha_Llegada" ColumnName="Fecha Llegada" />
+          <ScalarProperty Name="Id_Reserva" ColumnName="Id Reserva" />
+          <ScalarProperty Name="Estado_Pago" ColumnName="Estado Pago" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
@@ -647,5 +650,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_pagarReserva" FunctionName="Agencia_BDModel.Store.usp_pagarReserva" />
   </EntityContainerMapping>
 </Mapping>

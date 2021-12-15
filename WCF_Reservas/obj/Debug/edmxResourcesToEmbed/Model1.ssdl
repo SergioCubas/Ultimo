@@ -84,15 +84,15 @@
     </Key>
     <Property Name="idPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="fecha" Type="datetime" />
-    <Property Name="tipo_comprobante" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="num_comprobante" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="medio_pago" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="F_Registro" Type="datetime" />
+    <Property Name="tipo_comprobante" Type="varchar" MaxLength="50" />
+    <Property Name="num_comprobante" Type="varchar" MaxLength="50" />
+    <Property Name="medio_pago" Type="varchar" MaxLength="50" />
+    <Property Name="F_registro" Type="datetime" />
     <Property Name="F_Modificacion" Type="datetime" />
-    <Property Name="estado" Type="int" />
+    <Property Name="documento_pago" Type="varchar" MaxLength="30" />
     <Property Name="idPasajero" Type="int" />
     <Property Name="idReserva" Type="int" />
-    <Property Name="documento_pago" Type="nchar" MaxLength="12" />
+    <Property Name="estado" Type="int" />
   </EntityType>
   <EntityType Name="Tb_pais">
     <Key>
@@ -196,7 +196,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Tb_pago__idPasaj__5070F446">
+  <Association Name="FK__Tb_pago__idPasaj__09746778">
     <End Role="Tb_pasajero" Type="Self.Tb_pasajero" Multiplicity="0..1" />
     <End Role="Tb_pago" Type="Self.Tb_pago" Multiplicity="*" />
     <ReferentialConstraint>
@@ -208,7 +208,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Tb_pago__idReser__5165187F">
+  <Association Name="FK__Tb_pago__idReser__0A688BB1">
     <End Role="Tb_reserva" Type="Self.Tb_reserva" Multiplicity="0..1" />
     <End Role="Tb_pago" Type="Self.Tb_pago" Multiplicity="*" />
     <ReferentialConstraint>
@@ -446,6 +446,12 @@
     <Parameter Name="email" Type="nvarchar" Mode="In" />
     <Parameter Name="dni" Type="nvarchar" Mode="In" />
   </Function>
+  <Function Name="usp_pagarReserva" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idPasajero" Type="int" Mode="In" />
+    <Parameter Name="idReserva" Type="int" Mode="In" />
+    <Parameter Name="comprobante" Type="varchar" Mode="In" />
+    <Parameter Name="medio_pago" Type="varchar" Mode="In" />
+  </Function>
   <EntityContainer Name="Agencia_BDModelStoreContainer">
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tb_aerolinea" EntityType="Self.Tb_aerolinea" Schema="dbo" store:Type="Tables" />
@@ -472,11 +478,11 @@
       <End Role="Tb_aeropuerto" EntitySet="Tb_aeropuerto" />
       <End Role="Tb_Destino" EntitySet="Tb_Destino" />
     </AssociationSet>
-    <AssociationSet Name="FK__Tb_pago__idPasaj__5070F446" Association="Self.FK__Tb_pago__idPasaj__5070F446">
+    <AssociationSet Name="FK__Tb_pago__idPasaj__09746778" Association="Self.FK__Tb_pago__idPasaj__09746778">
       <End Role="Tb_pasajero" EntitySet="Tb_pasajero" />
       <End Role="Tb_pago" EntitySet="Tb_pago" />
     </AssociationSet>
-    <AssociationSet Name="FK__Tb_pago__idReser__5165187F" Association="Self.FK__Tb_pago__idReser__5165187F">
+    <AssociationSet Name="FK__Tb_pago__idReser__0A688BB1" Association="Self.FK__Tb_pago__idReser__0A688BB1">
       <End Role="Tb_reserva" EntitySet="Tb_reserva" />
       <End Role="Tb_pago" EntitySet="Tb_pago" />
     </AssociationSet>

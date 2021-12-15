@@ -21,7 +21,7 @@ namespace Proyecto_MVC.Controllers
         public ActionResult Index()
         {
             ViewBag.ListarVuelos = miservVuelos.GetAllVuelos();
-
+            ViewBag.ListarDepartamentos = miservVuelos.ListarDepartamentos();
 
             return View();
 

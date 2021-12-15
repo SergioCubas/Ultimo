@@ -484,6 +484,8 @@
     <Content Include="Views\Session\Index.cshtml" />
     <Content Include="Views\Session\Logout.cshtml" />
     <Content Include="Views\Home\Reserva.cshtml" />
+    <Content Include="Views\Reservas\Detail.cshtml" />
+    <Content Include="Views\Reservas\Pagar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

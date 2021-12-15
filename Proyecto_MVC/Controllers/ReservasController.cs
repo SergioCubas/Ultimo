@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Proyecto_MVC.Models;
 using Proyecto_MVC.ProxyReservas;
+using Proyecto_MVC.ProxyVuelos;
 
 namespace Proyecto_MVC.Controllers
 {
     public class ReservasController : Controller
     {
         ServicioReservaClient miservReservas = new ServicioReservaClient();
+        ServicioVueloClient miservVuelos = new ServicioVueloClient();
+
+
         // GET: Reservas
         public ActionResult Index()
         {
@@ -17,6 +22,29 @@ namespace Proyecto_MVC.Controllers
             ViewBag.ListarCiudadOrigen = ObtenerCiudadesOrigen();
             ViewBag.ListarCiudadDestino = ObtenerCiudadesDestino();
             return View();
+        }
+
+        public ActionResult Detail()
+        {
+            if (Session["UserNombre"] != null)
+            {
+                ViewBag.ListarReservas = miservReservas.ListarReservasPorDni(Session["UserDni"].ToString());
+            }
+            else
+            {
+                ViewBag.ListarReservas = "";
+            }
+
+            return View();
+        }
+
+        public ActionResult Pagar(Tb_pago pago)
+        {
+            miservVuelos.PagarReserva((int)pago.idPasajero, (int)pago.idReserva, pago.tipo_comprobante, pago.medio_pago);
+
+            TempData["exit"] = "Reserva Pagada!";
+
+            return RedirectToAction("Detail", "Reservas");
         }
 
         public List<SelectListItem> ObtenerCiudadesOrigen()

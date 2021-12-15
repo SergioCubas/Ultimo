@@ -55,6 +55,12 @@
   <wsdl:message name="IServicioVuelo_ListarAerolineas_OutputMessage">
     <wsdl:part name="parameters" element="tns:ListarAerolineasResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioVuelo_PagarReserva_InputMessage">
+    <wsdl:part name="parameters" element="tns:PagarReserva" />
+  </wsdl:message>
+  <wsdl:message name="IServicioVuelo_PagarReserva_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PagarReservaResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServicioVuelo">
     <wsdl:operation name="GetAllVuelos">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioVuelo/GetAllVuelos" message="tns:IServicioVuelo_GetAllVuelos_InputMessage" />
@@ -87,6 +93,10 @@
     <wsdl:operation name="ListarAerolineas">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioVuelo/ListarAerolineas" message="tns:IServicioVuelo_ListarAerolineas_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioVuelo/ListarAerolineasResponse" message="tns:IServicioVuelo_ListarAerolineas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PagarReserva">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioVuelo/PagarReserva" message="tns:IServicioVuelo_PagarReserva_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioVuelo/PagarReservaResponse" message="tns:IServicioVuelo_PagarReserva_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServicioVuelo" type="tns:IServicioVuelo">
@@ -156,6 +166,15 @@
     </wsdl:operation>
     <wsdl:operation name="ListarAerolineas">
       <soap:operation soapAction="http://tempuri.org/IServicioVuelo/ListarAerolineas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PagarReserva">
+      <soap:operation soapAction="http://tempuri.org/IServicioVuelo/PagarReserva" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

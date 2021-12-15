@@ -33,5 +33,6 @@ namespace WCF_Reservas
         public string Imagen_Destino { get; set; }
         public Nullable<System.DateTime> Fecha_Llegada { get; set; }
         public Nullable<int> Estado_Reserva { get; set; }
+        public Nullable<int> Estado_Pago { get; set; }
     }
 }

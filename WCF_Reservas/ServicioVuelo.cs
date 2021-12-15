@@ -63,6 +63,20 @@ namespace WCF_Reservas
 
         }
 
+        public void PagarReserva(Int32 idPasajero, Int32 idReserva, string comprobante, string medio_pago)
+        {
+            Agencia_BDEntities vuelo = new Agencia_BDEntities();
+
+            try
+            {
+                var query = vuelo.usp_pagarReserva(idPasajero, idReserva, comprobante, medio_pago);
+            }
+            catch (EntityException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         public List<VueloBE> ListarPorAerolinea(String aerolinea)
         {
             Agencia_BDEntities vuelo = new Agencia_BDEntities();

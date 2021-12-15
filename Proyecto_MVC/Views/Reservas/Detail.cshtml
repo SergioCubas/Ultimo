@@ -1,0 +1,350 @@
+﻿
+<style>
+
+    .row {
+        margin: 5% 0;
+    }
+
+    .jumbotron {
+        background-position: center;
+        background-size: cover;
+        border-radius: 0 !important;
+        height: 450px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0;
+    }
+
+        .jumbotron h2 {
+            color: white;
+            font-weight: bold;
+        }
+
+        .jumbotron p {
+            color: white;
+            font-weight: bold;
+        }
+
+    .navbar-inverse {
+        background-color: rgb(16, 0, 79);
+    }
+
+        .navbar-inverse a {
+            color: white !important;
+        }
+
+    .btn-primary {
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px dotted rgb(255, 255, 255);
+    }
+
+    .filter {
+        position: relative;
+        padding: 2%;
+        display: flex;
+        justify-content: space-between;
+        background-color: rgb(255, 255, 255);
+        border-radius: 0px 0.5rem 0.5rem;
+        box-shadow: rgb(0 0 0 / 10%) 0rem 0.25rem 0.5rem;
+        margin-bottom: 60px;
+    }
+
+        .filter p {
+            position: absolute;
+            top: -30px;
+            left: 0;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            font-size: 17px;
+            font-weight: bold;
+            color: rgb(27, 0, 136);
+        }
+
+            .filter p svg {
+                width: auto;
+                margin-right: 10px;
+            }
+
+        .filter button {
+            background-color: rgb(232, 17, 75);
+            border: 2px solid white;
+            color: rgb(255, 255, 255);
+            width: 15%;
+            border-radius: 25px;
+        }
+
+        .filter .input-group {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+        }
+
+
+    .cards {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+        .cards .card {
+            background-color: rgb(255, 255, 255);
+            box-shadow: rgb(16 0 79 / 12%) 0px 0.125rem 0.5rem;
+            width: 30%;
+            margin-bottom: 40px;
+            border-radius: 20px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+        }
+
+    .card-image {
+        width: 100%;
+        height: 250px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .card-content {
+        padding: 25px;
+        box-sizing: border-box;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+
+    .card-content h3 {
+        color: rgb(16, 0, 79);
+        font-size: 28px;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .card-content small {
+        color: rgb(92, 92, 92);
+    }
+
+    .card-content p {
+        font-size: 23px;
+    }
+
+    .card-content small:nth-child(5) {
+        font-size: 10px;
+        margin-top: 15px;
+    }
+
+    .card-content small:nth-child(3) {
+        font-weight: bold;
+    }
+
+    table {
+        width: 100%;
+    }
+
+        table td {
+            display: flex;
+        }
+
+    .card button {
+        background-color: rgb(232, 17, 75);
+        border: 2px solid white;
+        color: rgb(255, 255, 255);
+        width: 95%;
+        border-radius: 25px;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+
+    .card .badge {
+        background: #10004f;
+        font-size: 12px;
+        padding: 5px 15px;
+    }
+
+    .alert-success p {
+        margin: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .alert-success {
+        position: fixed;
+        top: 50px;
+        z-index: 999999;
+        padding: 15px 25px;
+        right: 30px;
+    }
+
+        .alert-success svg {
+            width: fit-content;
+            margin-right: 10px;
+        }
+
+
+    td select {
+        width: 100%;
+        padding: 10px 15px;
+    }
+
+    td button {
+        margin-top: 15px !important;
+    }
+
+    td input {
+        width: 100%;
+        height: fit-content;
+        margin-bottom: 20px;
+        padding: 10px 20px;
+    }
+
+    table td {
+        display: flex;
+        flex-wrap: wrap;
+
+
+    }
+</style>
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+
+@if (TempData["exit"] != null)
+{
+    <div class="alert-success">
+        <p type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            @TempData["exit"]
+        </p>
+    </div>
+
+}
+
+
+<div class="row">
+
+    <div class="container">
+        <div class="row cards">
+
+            @foreach (var reservas in ViewBag.ListarReservas)
+
+            {
+
+
+            <div class="card">
+                <div class="badge">
+                    <span>@reservas.Tipo_asiento</span>
+                </div>
+                <div class="card-content">
+                    <h3>@reservas.Nombre_ciudadDestino</h3>
+                    <p>S/. @reservas.Precio</p>
+                    <small>@reservas.Nombre_Aerolinea</small>
+                    <small>@reservas.NombreAeropuertoOrigen</small>
+                    <small>Asiento: @reservas.Asiento</small>
+
+                </div>
+                @if (@reservas.EstadoPago == 0)
+                {
+                    using (Html.BeginForm("Pagar", "Reservas", FormMethod.Post))
+                    {
+                        <fieldset>
+
+                            <table>
+                                <tr>
+                                    <td>
+
+                                        <input type="hidden" name="idReserva" value="@reservas.IdReserva" />
+                                        <input type="hidden" name="idPasajero" value="@Session["UserId"].ToString()" />
+
+                                        <input type="text" name="tipo_comprobante" value="Boleta" disabled />
+
+                                        <select name="medio_pago">
+                                            <option value="Efectivo">Efectivo</option>
+                                            <option value="Visa">Visa</option>
+                                            <option value="americanexpress">Americanexpress</option>
+                                            <option value="mastercard">Mastercard</option>
+
+                                        </select>
+
+                                        <button class="btn btn-primary btn-lg btn_pagar"> Pagar reserva </button>
+                                    </td>
+
+                                </tr>
+
+                            </table>
+                        </fieldset>
+
+
+                    }
+                }
+                else
+                {
+                    <p>Reserva Pagada</p>
+                }
+
+
+
+            </div>
+
+            }
+
+
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Pago de Reserva</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                @using (Html.BeginForm("Pagar", "Reservas", FormMethod.Post))
+                {
+                    <fieldset>
+
+                        <table>
+                            <tr>
+                                <td>
+
+                                    (int)pago.idReserva, pago.tipo_comprobante, pago.medio_pago
+                                    <input type="text" name="idReserva" value="@Session["UserId"].ToString()" />
+                                    <input type="text" name="idPasajero" value="@Session["UserId"].ToString()" />
+                                    <input type="text" name="idPasajero" value="@Session["UserId"].ToString()" />
+                                    <input type="text" name="idPasajero" value="@Session["UserId"].ToString()" />
+
+                                    <button class="btn btn-primary btn-lg"> Generar reserva </button>
+                                </td>
+
+                            </tr>
+
+                        </table>
+                    </fieldset>
+                }
+
+            </div>
+
+        </div>
+    </div>
+</div>

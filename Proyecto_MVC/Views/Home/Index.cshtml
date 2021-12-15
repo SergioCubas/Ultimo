@@ -190,6 +190,53 @@
             width: fit-content;
             margin-right: 10px;
         }
+
+
+    .input-group.mb-3 select {
+        width: 90%;
+    }
+
+    input#exampleFormControlInput1 {
+        width: 90%;
+    }
+
+
+    .card button {
+        background-color: rgb(232, 17, 75);
+        border: 2px solid white;
+        color: rgb(255, 255, 255);
+        width: 95%;
+        border-radius: 25px;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+
+    .card .badge {
+        background: #10004f;
+        font-size: 12px;
+        padding: 5px 15px;
+    }
+
+    .alert-success p {
+        margin: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .alert-success {
+        position: fixed;
+        top: 50px;
+        z-index: 999999;
+        padding: 15px 25px;
+        right: 30px;
+    }
+
+    .alert-success svg {
+        width: fit-content;
+        margin-right: 10px;
+
+    }
+
 </style>
 
 
@@ -198,24 +245,31 @@
     <div class="alert-success">
         <p type="button">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-        @TempData["exit"]</p>
+            @TempData["exit"]
+        </p>
     </div>
 
 }
 
+
 <div class="row">
-    <div class="jumbotron" style="background-image: url(https://images.pexels.com/photos/730778/pexels-photo-730778.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)">
-        <h2>
-            Ser reconocidos por ustedes, eso que nos hace volar
-        </h2>
-        <p class="lead">
-            Aerolínea Líder de Sudamérica World Travel Awards 2021
-        </p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Ver vuelos &raquo;</a></p>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="jumbotron" style="background-image: url(https://images.pexels.com/photos/730778/pexels-photo-730778.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)">
+                <h2>
+                    Ser reconocidos por ustedes, eso que nos hace volar
+                </h2>
+                <p class="lead">
+                    Aerolínea Líder de Sudamérica World Travel Awards 2021
+                </p>
+                <p><a href="https://asp.net" class="btn btn-primary btn-lg">Ver vuelos &raquo;</a></p>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="row">
+
+<div class="row" style="width: 70%; margin: auto">
     <div class="container">
         <div class="row">
 
@@ -230,10 +284,10 @@
 
                     <select class="form-control">
 
-                        @*@foreach (Tb_departamento departamento in Model.Departamentos)
-                            {
-                            <option value=@Html.DisplayFor(modelItem => departamento.nombre)>@Html.DisplayFor(modelItem => departamento.nombre)</option>
-                            }*@
+                        @foreach (var departamentos in ViewBag.ListarDepartamentos)
+                        {
+                        <option value=@departamentos.Nombre_Departamento> @departamentos.Nombre_Departamento</option>
+                        }
 
                     </select>
                 </div>
@@ -242,16 +296,16 @@
                     <label for="exampleDataList" class="form-label">Destino</label>
                     <select class="form-control">
 
-                        @*@foreach (Tb_departamento departamento in Model.Departamentos)
-                            {
-                            <option value=@Html.DisplayFor(modelItem => departamento.nombre)>@Html.DisplayFor(modelItem => departamento.nombre)</option>
-                            }*@
+                        @foreach (var departamentos in ViewBag.ListarDepartamentos)
+                        {
+                            <option value=@departamentos.Nombre_Departamento> @departamentos.Nombre_Departamento</option>
+                        }
                     </select>
                 </div>
 
                 <div class="input-group mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Fecha</label>
-                    <input type="date" class="form-control" id="exampleFormControlInput1">
+                    <input type="date" class="form-control" id="exampleFormControlInput1" min="2021-12-15">
                 </div>
 
                 <button class="btn btn-primary">Buscar</button>
@@ -261,7 +315,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row" style="width: 80%; margin: auto">
 
     <div class="container">
         <div class="row cards">
@@ -323,3 +377,4 @@
     </div>
 
 </div>
+

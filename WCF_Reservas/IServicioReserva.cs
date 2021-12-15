@@ -68,6 +68,8 @@ namespace WCF_Reservas
         private Int32 idPais;
         private Int32 idDepart;
         private Int32 idAerolinea;
+        private Int32 idReserva;
+
         private String nombre;
         private String numDocumento;
         private String asiento;
@@ -75,6 +77,33 @@ namespace WCF_Reservas
         private String telefono;
         private String genero;
 
+        private Int32 estado;
+
+        private Int32 estadoPago;
+
+        [DataMember]
+        public Int32 EstadoPago
+        {
+            get { return estadoPago; }
+            set { estadoPago = value; }
+
+
+        }
+
+
+        [DataMember]
+        public Int32 Estado
+        {
+            get { return estado; }
+            set { estado = value; }
+        }
+
+        [DataMember]
+        public Int32 IdReserva
+        {
+            get { return idReserva; }
+            set { idReserva = value; }
+        }
 
         [DataMember]
         public String Email

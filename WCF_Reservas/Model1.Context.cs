@@ -419,5 +419,26 @@ namespace WCF_Reservas
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_Login_Result>("usp_Login", emailParameter, dniParameter);
         }
+    
+        public virtual int usp_pagarReserva(Nullable<int> idPasajero, Nullable<int> idReserva, string comprobante, string medio_pago)
+        {
+            var idPasajeroParameter = idPasajero.HasValue ?
+                new ObjectParameter("idPasajero", idPasajero) :
+                new ObjectParameter("idPasajero", typeof(int));
+    
+            var idReservaParameter = idReserva.HasValue ?
+                new ObjectParameter("idReserva", idReserva) :
+                new ObjectParameter("idReserva", typeof(int));
+    
+            var comprobanteParameter = comprobante != null ?
+                new ObjectParameter("comprobante", comprobante) :
+                new ObjectParameter("comprobante", typeof(string));
+    
+            var medio_pagoParameter = medio_pago != null ?
+                new ObjectParameter("medio_pago", medio_pago) :
+                new ObjectParameter("medio_pago", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_pagarReserva", idPasajeroParameter, idReservaParameter, comprobanteParameter, medio_pagoParameter);
+        }
     }
 }

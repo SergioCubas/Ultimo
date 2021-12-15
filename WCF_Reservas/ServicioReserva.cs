@@ -60,6 +60,8 @@ namespace WCF_Reservas
                     objReservaBE.NombreAeropuertoOrigen = resultado.Aeropuerto_Origen;
                     objReservaBE.NombreAeropuertoDestino = resultado.Aeropuerto_Destino;
                     objReservaBE.Nombre_Aerolinea = resultado.Aerolinea;
+                    objReservaBE.Estado = (int)resultado.Estado_Reserva;
+                    objReservaBE.EstadoPago = (int)resultado.Estado_Pago;
 
 
                     objListaReserva.Add(objReservaBE);
@@ -290,6 +292,8 @@ namespace WCF_Reservas
                     objReservaBE.NombreAeropuertoOrigen = resultado.Aeropuerto_Origen;
                     objReservaBE.NombreAeropuertoDestino = resultado.Aeropuerto_Destino;
                     objReservaBE.Nombre_Aerolinea = resultado.Aerolinea;
+                    objReservaBE.IdReserva = resultado.Id_Reserva;
+                    objReservaBE.EstadoPago = (int)resultado.Estado_Pago;
 
 
                     objListaReserva.Add(objReservaBE);

@@ -35,6 +35,9 @@ namespace WCF_Reservas
         [OperationContract]
         List<VueloBE> ListarAerolineas();
 
+        [OperationContract]
+        void PagarReserva(Int32 idPasajero, Int32 idReserva, string comprobante, string medio_pago);
+
     }
 
 

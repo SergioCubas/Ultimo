@@ -23,6 +23,9 @@ namespace Proyecto_MVC.Controllers
             return View();
         }
 
+
+        
+
         public List<SelectListItem> ObtenerCiudadesOrigen()
         {
             List<SelectListItem> items = new SelectList(miservVuelos.ListarDepartamentos(), "Nombre_Departamento", "Nombre_Departamento").ToList();

@@ -477,6 +477,12 @@ namespace Proyecto_MVC.ProxyVuelos {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVuelo/ListarAerolineas", ReplyAction="http://tempuri.org/IServicioVuelo/ListarAerolineasResponse")]
         System.Threading.Tasks.Task<Proyecto_MVC.ProxyVuelos.VueloBE[]> ListarAerolineasAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVuelo/PagarReserva", ReplyAction="http://tempuri.org/IServicioVuelo/PagarReservaResponse")]
+        void PagarReserva(int idPasajero, int idReserva, string comprobante, string medio_pago);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVuelo/PagarReserva", ReplyAction="http://tempuri.org/IServicioVuelo/PagarReservaResponse")]
+        System.Threading.Tasks.Task PagarReservaAsync(int idPasajero, int idReserva, string comprobante, string medio_pago);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -568,6 +574,14 @@ namespace Proyecto_MVC.ProxyVuelos {
         
         public System.Threading.Tasks.Task<Proyecto_MVC.ProxyVuelos.VueloBE[]> ListarAerolineasAsync() {
             return base.Channel.ListarAerolineasAsync();
+        }
+        
+        public void PagarReserva(int idPasajero, int idReserva, string comprobante, string medio_pago) {
+            base.Channel.PagarReserva(idPasajero, idReserva, comprobante, medio_pago);
+        }
+        
+        public System.Threading.Tasks.Task PagarReservaAsync(int idPasajero, int idReserva, string comprobante, string medio_pago) {
+            return base.Channel.PagarReservaAsync(idPasajero, idReserva, comprobante, medio_pago);
         }
     }
 }

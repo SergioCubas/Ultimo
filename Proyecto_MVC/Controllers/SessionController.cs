@@ -31,6 +31,7 @@ namespace Proyecto_MVC.Controllers
                         Session["UserID"] = obj.idPasajero.ToString();
                         Session["UserNombre"] = obj.nombre.ToString();
                         Session["UserRol"] = obj.id_Rol.ToString();
+                        Session["UserDni"] = obj.num_documento.ToString();
 
                         return RedirectToAction("Index", "Home");
                     }

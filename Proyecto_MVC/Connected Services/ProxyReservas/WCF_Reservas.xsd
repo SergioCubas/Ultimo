@@ -10,6 +10,8 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Asiento" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado" type="xs:int" />
+      <xs:element minOccurs="0" name="EstadoPago" type="xs:int" />
       <xs:element minOccurs="0" name="Fecha_Llegada" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Fecha_Salida" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Foto" nillable="true" type="xs:string" />
@@ -17,6 +19,7 @@
       <xs:element minOccurs="0" name="IdAerolinea" type="xs:int" />
       <xs:element minOccurs="0" name="IdDepart" type="xs:int" />
       <xs:element minOccurs="0" name="IdPais" type="xs:int" />
+      <xs:element minOccurs="0" name="IdReserva" type="xs:int" />
       <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="NombreAeropuertoDestino" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="NombreAeropuertoOrigen" nillable="true" type="xs:string" />
@@ -40,6 +43,7 @@
   <xs:element name="ArrayOfVueloBE" nillable="true" type="tns:ArrayOfVueloBE" />
   <xs:complexType name="VueloBE">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Estado" type="xs:int" />
       <xs:element minOccurs="0" name="Fecha_Llegada" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Fecha_Salida" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Fila" nillable="true" type="xs:string" />

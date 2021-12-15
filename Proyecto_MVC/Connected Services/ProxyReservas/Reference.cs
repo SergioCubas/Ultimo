@@ -29,6 +29,12 @@ namespace Proyecto_MVC.ProxyReservas {
         private string EmailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int EstadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int EstadoPagoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime Fecha_LlegadaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -48,6 +54,9 @@ namespace Proyecto_MVC.ProxyReservas {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdPaisField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdReservaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NombreField;
@@ -117,6 +126,32 @@ namespace Proyecto_MVC.ProxyReservas {
                 if ((object.ReferenceEquals(this.EmailField, value) != true)) {
                     this.EmailField = value;
                     this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Estado {
+            get {
+                return this.EstadoField;
+            }
+            set {
+                if ((this.EstadoField.Equals(value) != true)) {
+                    this.EstadoField = value;
+                    this.RaisePropertyChanged("Estado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int EstadoPago {
+            get {
+                return this.EstadoPagoField;
+            }
+            set {
+                if ((this.EstadoPagoField.Equals(value) != true)) {
+                    this.EstadoPagoField = value;
+                    this.RaisePropertyChanged("EstadoPago");
                 }
             }
         }
@@ -208,6 +243,19 @@ namespace Proyecto_MVC.ProxyReservas {
                 if ((this.IdPaisField.Equals(value) != true)) {
                     this.IdPaisField = value;
                     this.RaisePropertyChanged("IdPais");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdReserva {
+            get {
+                return this.IdReservaField;
+            }
+            set {
+                if ((this.IdReservaField.Equals(value) != true)) {
+                    this.IdReservaField = value;
+                    this.RaisePropertyChanged("IdReserva");
                 }
             }
         }
@@ -388,6 +436,9 @@ namespace Proyecto_MVC.ProxyReservas {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int EstadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime Fecha_LlegadaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -463,6 +514,19 @@ namespace Proyecto_MVC.ProxyReservas {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Estado {
+            get {
+                return this.EstadoField;
+            }
+            set {
+                if ((this.EstadoField.Equals(value) != true)) {
+                    this.EstadoField = value;
+                    this.RaisePropertyChanged("Estado");
+                }
             }
         }
         
