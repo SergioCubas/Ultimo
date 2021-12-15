@@ -38,6 +38,7 @@ namespace Proyecto_MVC.Controllers
         // GET: MantDepartamento/Create
         public ActionResult Create()
         {
+            ViewBag.Estado = ObtenerEstados();
             return View();
         }
 
@@ -46,7 +47,7 @@ namespace Proyecto_MVC.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_departamento,nombre,F_Registro,F_Modificacion,estado")] Tb_departamento tb_departamento)
+        public ActionResult Create([Bind(Include = "id_departamento,foto,nombre,F_Registro,F_Modificacion,estado")] Tb_departamento tb_departamento)
         {
             if (ModelState.IsValid)
             {
@@ -54,7 +55,7 @@ namespace Proyecto_MVC.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.Estado = ObtenerEstados();
             return View(tb_departamento);
         }
 
@@ -70,6 +71,7 @@ namespace Proyecto_MVC.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Estado = ObtenerEstados();
             return View(tb_departamento);
         }
 
@@ -78,7 +80,7 @@ namespace Proyecto_MVC.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_departamento,nombre,F_Registro,F_Modificacion,estado")] Tb_departamento tb_departamento)
+        public ActionResult Edit([Bind(Include = "id_departamento,foto,nombre,F_Registro,F_Modificacion,estado")] Tb_departamento tb_departamento)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +88,7 @@ namespace Proyecto_MVC.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.Estado = ObtenerEstados();
             return View(tb_departamento);
         }
 
@@ -122,6 +125,14 @@ namespace Proyecto_MVC.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public List<SelectListItem> ObtenerEstados()
+        {
+            return new List<SelectListItem>()
+            {
+                new SelectListItem{Text = "Activo", Value = "1"},
+                new SelectListItem{Text = "Inactivo", Value = "0"},
+            };
         }
     }
 }

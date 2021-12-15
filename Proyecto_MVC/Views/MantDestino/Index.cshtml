@@ -3,11 +3,12 @@
 @{
     ViewBag.Title = "Index";
 }
+<br />
 
-<h2>Mantenimiento de destinos</h2>
+<h2>Mantenimiento de Destinos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Destino", "Create")
 </p>
 <table class="table">
     <tr>
@@ -18,7 +19,7 @@
             @Html.DisplayNameFor(model => model.F_Modificacion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.estado)
+            @Html.DisplayNameFor(model => model.est)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Tb_aeropuerto.nombre)
@@ -26,27 +27,28 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.F_Registro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.F_Modificacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.estado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tb_aeropuerto.nombre)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idDestino }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idDestino }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idDestino })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.F_Registro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.F_Modificacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.est)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tb_aeropuerto.nombre)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.idDestino }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.idDestino }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.idDestino })
+            </td>
+        </tr>
+    }
 
 </table>
 <div>

@@ -3,14 +3,15 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
+<br />
+<h2>Detalles</h2>
 
 <div>
-    <h4>Tb_aerolinea</h4>
+    <h4>Aerolinea</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
+
             @Html.DisplayNameFor(model => model.ruc)
         </dt>
 
@@ -43,16 +44,16 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.estado)
+            @Html.DisplayNameFor(model => model.est)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.estado)
+            @Html.DisplayFor(model => model.est)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idAerolinea }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idAerolinea }) |
+    @Html.ActionLink("Volver", "Index")
 </p>

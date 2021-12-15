@@ -3,11 +3,11 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Mantenimieto de asientos</h2>
+<br />
+<h2>Mantenimieto de Asientos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Asiento", "Create")
 </p>
 <table class="table">
     <tr>
@@ -30,41 +30,42 @@
             @Html.DisplayNameFor(model => model.F_Modificacion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.estado)
+            @Html.DisplayNameFor(model => model.est)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.tipo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fila)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.letra)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.precio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.F_Registro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.F_Modificacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.estado)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idAsiento }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idAsiento }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idAsiento })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fila)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.letra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.F_Registro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.F_Modificacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.est)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.idAsiento }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.idAsiento }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.idAsiento })
+            </td>
+        </tr>
+    }
 
 </table>
 <div>

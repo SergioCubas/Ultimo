@@ -7,27 +7,60 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+
 namespace Proyecto_MVC.Models
 {
+
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Tb_departamento
     {
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Tb_departamento()
         {
+
             this.Tb_pais = new HashSet<Tb_pais>();
+
         }
-    
+
+        [Display(Name = "Codigo")]
         public int id_departamento { get; set; }
+
+        [Display(Name = "Departamento")]
         public string nombre { get; set; }
+
+        [Display(Name = "Fecha de Registro")]
         public Nullable<System.DateTime> F_Registro { get; set; }
+
+        [Display(Name = "Fecha de Modificacion")]
         public Nullable<System.DateTime> F_Modificacion { get; set; }
+
+        [Display(Name = "Estado")]
+        public String est
+        {
+            get
+            {
+                return
+                (
+                    estado == 1 ? "Activo" :
+                    "Desactivo"
+                );
+            }
+        }
         public Nullable<int> estado { get; set; }
+
+        [Display(Name = "Foto")]
         public string foto { get; set; }
-    
+
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
         public virtual ICollection<Tb_pais> Tb_pais { get; set; }
+
     }
+
 }

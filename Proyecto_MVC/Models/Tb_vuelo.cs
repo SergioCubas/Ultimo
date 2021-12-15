@@ -7,27 +7,67 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+
 namespace Proyecto_MVC.Models
 {
+
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Tb_vuelo
     {
+
+        [Display(Name = "Codigo Vuelo")]
         public int idVuelo { get; set; }
+
+        [Display(Name = "Fecha Registro")]
         public Nullable<System.DateTime> F_Registro { get; set; }
+
+        [Display(Name = "Fecha Modificacion")]
         public Nullable<System.DateTime> F_Modificacion { get; set; }
+
+        [Display(Name = "Estado")]
+        public String est
+        {
+            get
+            {
+                return
+                (
+                    estado == 1 ? "Activo" :
+                    "Desactivo"
+                );
+            }
+        }
         public Nullable<int> estado { get; set; }
+
+        [Display(Name = "Aeropuerto")]
         public Nullable<int> idAeropuerto { get; set; }
+
+        [Display(Name = "Reserva")]
         public Nullable<int> idReserva { get; set; }
+
+        [Display(Name = "Asiento")]
         public Nullable<int> idAsiento { get; set; }
+
+        [Display(Name = "Codigo Avion")]
         public Nullable<int> idAvion { get; set; }
+
+        [Display(Name = "Codigo Destino")]
         public Nullable<int> idDestino { get; set; }
-    
+
+
+
         public virtual Tb_aeropuerto Tb_aeropuerto { get; set; }
+
         public virtual Tb_asiento Tb_asiento { get; set; }
+
         public virtual Tb_avion Tb_avion { get; set; }
+
         public virtual Tb_Destino Tb_Destino { get; set; }
+
         public virtual Tb_reserva Tb_reserva { get; set; }
+
     }
+
 }

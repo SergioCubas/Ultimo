@@ -40,6 +40,7 @@ namespace Proyecto_MVC.Controllers
         public ActionResult Create()
         {
             ViewBag.idAerolinea = new SelectList(db.Tb_aerolinea, "idAerolinea", "ruc");
+            ViewBag.Estado = ObtenerEstados();
             return View();
         }
 
@@ -58,6 +59,7 @@ namespace Proyecto_MVC.Controllers
             }
 
             ViewBag.idAerolinea = new SelectList(db.Tb_aerolinea, "idAerolinea", "ruc", tb_avion.idAerolinea);
+            ViewBag.Estado = ObtenerEstados();
             return View(tb_avion);
         }
 
@@ -74,6 +76,7 @@ namespace Proyecto_MVC.Controllers
                 return HttpNotFound();
             }
             ViewBag.idAerolinea = new SelectList(db.Tb_aerolinea, "idAerolinea", "ruc", tb_avion.idAerolinea);
+            ViewBag.Estado = ObtenerEstados();
             return View(tb_avion);
         }
 
@@ -91,6 +94,7 @@ namespace Proyecto_MVC.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.idAerolinea = new SelectList(db.Tb_aerolinea, "idAerolinea", "ruc", tb_avion.idAerolinea);
+            ViewBag.Estado = ObtenerEstados();
             return View(tb_avion);
         }
 
@@ -127,6 +131,14 @@ namespace Proyecto_MVC.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public List<SelectListItem> ObtenerEstados()
+        {
+            return new List<SelectListItem>()
+            {
+                new SelectListItem{Text = "Activo", Value = "1"},
+                new SelectListItem{Text = "Inactivo", Value = "0"},
+            };
         }
     }
 }

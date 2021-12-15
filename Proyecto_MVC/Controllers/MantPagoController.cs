@@ -41,6 +41,9 @@ namespace Proyecto_MVC.Controllers
         {
             ViewBag.idPasajero = new SelectList(db.Tb_pasajero, "idPasajero", "nombre");
             ViewBag.idReserva = new SelectList(db.Tb_reserva, "idReserva", "observaciones");
+            ViewBag.Estado = ObtenerEstados();
+            ViewBag.TipoComprobante = ObtenerTipoComprobante();
+            ViewBag.MedioPago = ObtenerMedioPago();
             return View();
         }
 
@@ -60,6 +63,9 @@ namespace Proyecto_MVC.Controllers
 
             ViewBag.idPasajero = new SelectList(db.Tb_pasajero, "idPasajero", "nombre", tb_pago.idPasajero);
             ViewBag.idReserva = new SelectList(db.Tb_reserva, "idReserva", "observaciones", tb_pago.idReserva);
+            ViewBag.Estado = ObtenerEstados();
+            ViewBag.TipoComprobante = ObtenerTipoComprobante();
+            ViewBag.MedioPago = ObtenerMedioPago();
             return View(tb_pago);
         }
 
@@ -77,6 +83,9 @@ namespace Proyecto_MVC.Controllers
             }
             ViewBag.idPasajero = new SelectList(db.Tb_pasajero, "idPasajero", "nombre", tb_pago.idPasajero);
             ViewBag.idReserva = new SelectList(db.Tb_reserva, "idReserva", "observaciones", tb_pago.idReserva);
+            ViewBag.Estado = ObtenerEstados();
+            ViewBag.TipoComprobante = ObtenerTipoComprobante();
+            ViewBag.MedioPago = ObtenerMedioPago();
             return View(tb_pago);
         }
 
@@ -95,6 +104,9 @@ namespace Proyecto_MVC.Controllers
             }
             ViewBag.idPasajero = new SelectList(db.Tb_pasajero, "idPasajero", "nombre", tb_pago.idPasajero);
             ViewBag.idReserva = new SelectList(db.Tb_reserva, "idReserva", "observaciones", tb_pago.idReserva);
+            ViewBag.Estado = ObtenerEstados();
+            ViewBag.TipoComprobante = ObtenerTipoComprobante();
+            ViewBag.MedioPago = ObtenerMedioPago();
             return View(tb_pago);
         }
 
@@ -131,6 +143,33 @@ namespace Proyecto_MVC.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public List<SelectListItem> ObtenerEstados()
+        {
+            return new List<SelectListItem>()
+            {
+                new SelectListItem{Text = "Activo", Value = "1"},
+                new SelectListItem{Text = "Inactivo", Value = "0"},
+            };
+        }
+        public List<SelectListItem> ObtenerTipoComprobante()
+        {
+            return new List<SelectListItem>()
+            {
+                new SelectListItem{Text = "Boleta", Value = "Boleta"}
+
+            };
+        }
+        public List<SelectListItem> ObtenerMedioPago()
+        {
+            return new List<SelectListItem>()
+            {
+                new SelectListItem{Text = "americanexpress", Value = "americanexpress"},
+                new SelectListItem{Text = "mastercard", Value = "mastercard"},
+                new SelectListItem{Text = "Efectivo", Value = "Efectivo"},
+                new SelectListItem{Text = "visa", Value = "visa"}
+
+            };
         }
     }
 }

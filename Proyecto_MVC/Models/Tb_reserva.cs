@@ -7,34 +7,77 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+
 namespace Proyecto_MVC.Models
 {
+
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Tb_reserva
     {
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Tb_reserva()
         {
+
             this.Tb_pago = new HashSet<Tb_pago>();
+
             this.Tb_vuelo = new HashSet<Tb_vuelo>();
+
         }
-    
+
+        [Display(Name = "Codigo Reserva")]
         public int idReserva { get; set; }
+
+        [Display(Name = "Fecha Reserva")]
         public Nullable<System.DateTime> F_Reserva { get; set; }
+
+        [Display(Name = "Fecha Salida")]
         public Nullable<System.DateTime> F_Salida { get; set; }
+
+        [Display(Name = "Fecha Llegada")]
         public Nullable<System.DateTime> F_Llegada { get; set; }
+
+        [Display(Name = "Obsevaciones")]
         public string observaciones { get; set; }
+
+        [Display(Name = "Fecha Registro")]
         public Nullable<System.DateTime> F_Registro { get; set; }
+
+        [Display(Name = "Fecha Modificacion")]
         public Nullable<System.DateTime> F_Modificacion { get; set; }
+
+        [Display(Name = "Estado")]
+        public String est
+        {
+            get
+            {
+                return
+                (
+                    estado == 1 ? "Libre" :
+                    "Reservado"
+                );
+            }
+        }
         public Nullable<int> estado { get; set; }
+
+        [Display(Name = "Codigo Pasajero")]
         public Nullable<int> idPasajero { get; set; }
-    
+
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
         public virtual ICollection<Tb_pago> Tb_pago { get; set; }
+
         public virtual Tb_pasajero Tb_pasajero { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
         public virtual ICollection<Tb_vuelo> Tb_vuelo { get; set; }
+
     }
+
 }

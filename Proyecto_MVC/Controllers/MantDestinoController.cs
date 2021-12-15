@@ -40,6 +40,7 @@ namespace Proyecto_MVC.Controllers
         public ActionResult Create()
         {
             ViewBag.idAeropuerto = new SelectList(db.Tb_aeropuerto, "idAeropuerto", "nombre");
+            ViewBag.Estado = ObtenerEstados();
             return View();
         }
 
@@ -58,6 +59,7 @@ namespace Proyecto_MVC.Controllers
             }
 
             ViewBag.idAeropuerto = new SelectList(db.Tb_aeropuerto, "idAeropuerto", "nombre", tb_Destino.idAeropuerto);
+            ViewBag.Estado = ObtenerEstados();
             return View(tb_Destino);
         }
 
@@ -74,6 +76,7 @@ namespace Proyecto_MVC.Controllers
                 return HttpNotFound();
             }
             ViewBag.idAeropuerto = new SelectList(db.Tb_aeropuerto, "idAeropuerto", "nombre", tb_Destino.idAeropuerto);
+            ViewBag.Estado = ObtenerEstados();
             return View(tb_Destino);
         }
 
@@ -91,6 +94,7 @@ namespace Proyecto_MVC.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.idAeropuerto = new SelectList(db.Tb_aeropuerto, "idAeropuerto", "nombre", tb_Destino.idAeropuerto);
+            ViewBag.Estado = ObtenerEstados();
             return View(tb_Destino);
         }
 
@@ -127,6 +131,14 @@ namespace Proyecto_MVC.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public List<SelectListItem> ObtenerEstados()
+        {
+            return new List<SelectListItem>()
+            {
+                new SelectListItem{Text = "Activo", Value = "1"},
+                new SelectListItem{Text = "Inactivo", Value = "0"},
+            };
         }
     }
 }

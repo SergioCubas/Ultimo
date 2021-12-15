@@ -40,6 +40,7 @@ namespace Proyecto_MVC.Controllers
         public ActionResult Create()
         {
             ViewBag.id_departamento = new SelectList(db.Tb_departamento, "id_departamento", "nombre");
+            ViewBag.Estado = ObtenerEstados();
             return View();
         }
 
@@ -58,6 +59,7 @@ namespace Proyecto_MVC.Controllers
             }
 
             ViewBag.id_departamento = new SelectList(db.Tb_departamento, "id_departamento", "nombre", tb_pais.id_departamento);
+            ViewBag.Estado = ObtenerEstados();
             return View(tb_pais);
         }
 
@@ -74,6 +76,7 @@ namespace Proyecto_MVC.Controllers
                 return HttpNotFound();
             }
             ViewBag.id_departamento = new SelectList(db.Tb_departamento, "id_departamento", "nombre", tb_pais.id_departamento);
+            ViewBag.Estado = ObtenerEstados();
             return View(tb_pais);
         }
 
@@ -91,6 +94,7 @@ namespace Proyecto_MVC.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.id_departamento = new SelectList(db.Tb_departamento, "id_departamento", "nombre", tb_pais.id_departamento);
+            ViewBag.Estado = ObtenerEstados();
             return View(tb_pais);
         }
 
@@ -127,6 +131,14 @@ namespace Proyecto_MVC.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public List<SelectListItem> ObtenerEstados()
+        {
+            return new List<SelectListItem>()
+            {
+                new SelectListItem{Text = "Activo", Value = "1"},
+                new SelectListItem{Text = "Inactivo", Value = "0"},
+            };
         }
     }
 }

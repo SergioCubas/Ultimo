@@ -38,6 +38,8 @@ namespace Proyecto_MVC.Controllers
         // GET: MantAsiento/Create
         public ActionResult Create()
         {
+            ViewBag.Estado = ObtenerEstados();
+            ViewBag.TipoAsiento = ObtenerTipoAsiento();
             return View();
         }
 
@@ -54,7 +56,8 @@ namespace Proyecto_MVC.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.Estado = ObtenerEstados();
+            ViewBag.TipoAsiento = ObtenerTipoAsiento();
             return View(tb_asiento);
         }
 
@@ -70,6 +73,8 @@ namespace Proyecto_MVC.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Estado = ObtenerEstados();
+            ViewBag.TipoAsiento = ObtenerTipoAsiento();
             return View(tb_asiento);
         }
 
@@ -86,6 +91,8 @@ namespace Proyecto_MVC.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.Estado = ObtenerEstados();
+            ViewBag.TipoAsiento = ObtenerTipoAsiento();
             return View(tb_asiento);
         }
 
@@ -122,6 +129,23 @@ namespace Proyecto_MVC.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public List<SelectListItem> ObtenerEstados()
+        {
+            return new List<SelectListItem>()
+            {
+                new SelectListItem{Text = "Activo", Value = "1"},
+                new SelectListItem{Text = "Inactivo", Value = "0"},
+            };
+        }
+        public List<SelectListItem> ObtenerTipoAsiento()
+        {
+            return new List<SelectListItem>()
+            {
+                new SelectListItem{Text = "BASICO", Value = "BASICO"},
+                new SelectListItem{Text = "PLUS", Value = "PLUS"},
+                new SelectListItem{Text = "TOP", Value = "TOP"},
+            };
         }
     }
 }

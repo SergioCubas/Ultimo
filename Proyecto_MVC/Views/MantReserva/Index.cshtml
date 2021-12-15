@@ -3,11 +3,11 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Mantenimiento de reservas</h2>
+<br />
+<h2>Mantenimiento de Reservas</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Reserva", "Create")
 </p>
 <table class="table">
     <tr>
@@ -30,7 +30,7 @@
             @Html.DisplayNameFor(model => model.F_Modificacion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.estado)
+            @Html.DisplayNameFor(model => model.est)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Tb_pasajero.nombre)
@@ -38,39 +38,40 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.F_Reserva)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.F_Salida)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.F_Llegada)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.observaciones)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.F_Registro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.F_Modificacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.estado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tb_pasajero.nombre)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idReserva }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idReserva }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idReserva })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.F_Reserva)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.F_Salida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.F_Llegada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.observaciones)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.F_Registro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.F_Modificacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.est)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tb_pasajero.nombre)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.idReserva }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.idReserva }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.idReserva })
+            </td>
+        </tr>
+    }
 
 </table>
 <div>

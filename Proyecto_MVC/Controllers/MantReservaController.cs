@@ -40,6 +40,7 @@ namespace Proyecto_MVC.Controllers
         public ActionResult Create()
         {
             ViewBag.idPasajero = new SelectList(db.Tb_pasajero, "idPasajero", "nombre");
+            ViewBag.Estado = ObtenerEstados();
             return View();
         }
 
@@ -58,6 +59,7 @@ namespace Proyecto_MVC.Controllers
             }
 
             ViewBag.idPasajero = new SelectList(db.Tb_pasajero, "idPasajero", "nombre", tb_reserva.idPasajero);
+            ViewBag.Estado = ObtenerEstados();
             return View(tb_reserva);
         }
 
@@ -74,6 +76,7 @@ namespace Proyecto_MVC.Controllers
                 return HttpNotFound();
             }
             ViewBag.idPasajero = new SelectList(db.Tb_pasajero, "idPasajero", "nombre", tb_reserva.idPasajero);
+            ViewBag.Estado = ObtenerEstados();
             return View(tb_reserva);
         }
 
@@ -91,6 +94,7 @@ namespace Proyecto_MVC.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.idPasajero = new SelectList(db.Tb_pasajero, "idPasajero", "nombre", tb_reserva.idPasajero);
+            ViewBag.Estado = ObtenerEstados();
             return View(tb_reserva);
         }
 
@@ -127,6 +131,14 @@ namespace Proyecto_MVC.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public List<SelectListItem> ObtenerEstados()
+        {
+            return new List<SelectListItem>()
+            {
+                new SelectListItem{Text = "Libre", Value = "1"},
+                new SelectListItem{Text = "Reservado", Value = "0"},
+            };
         }
     }
 }

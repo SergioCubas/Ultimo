@@ -53,6 +53,7 @@ C:\Users\HP\Documents\SergioCubas\Proyecto-Reserva-Vuelos\WCF_Reservas\bin\Debug
 C:\Users\HP\Documents\SergioCubas\Proyecto-Reserva-Vuelos\WCF_Reservas\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\HP\Documents\SergioCubas\Proyecto-Reserva-Vuelos\WCF_Reservas\bin\Debug\EntityFramework.xml
 C:\Users\HP\Documents\SergioCubas\Proyecto-Reserva-Vuelos\WCF_Reservas\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\HP\Documents\SergioCubas\Proyecto-Reserva-Vuelos\WCF_Reservas\obj\Debug\WCF_Reservas.csproj.AssemblyReference.cache
 C:\Users\HP\Documents\SergioCubas\Proyecto-Reserva-Vuelos\WCF_Reservas\obj\Debug\WCF_Reservas.csproj.CoreCompileInputs.cache
 C:\Users\HP\Documents\SergioCubas\Proyecto-Reserva-Vuelos\WCF_Reservas\obj\Debug\WCF_Reservas.csproj.CopyComplete
 C:\Users\HP\Documents\SergioCubas\Proyecto-Reserva-Vuelos\WCF_Reservas\obj\Debug\WCF_Reservas.dll

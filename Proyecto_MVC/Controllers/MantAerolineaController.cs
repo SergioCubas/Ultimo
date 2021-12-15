@@ -32,12 +32,14 @@ namespace Proyecto_MVC.Controllers
             {
                 return HttpNotFound();
             }
+
             return View(tb_aerolinea);
         }
 
         // GET: MantAerolinea/Create
         public ActionResult Create()
         {
+            ViewBag.Estado = ObtenerEstados();
             return View();
         }
 
@@ -46,7 +48,7 @@ namespace Proyecto_MVC.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idAerolinea,ruc,nombre,F_Registro,F_Modificacion,estado")] Tb_aerolinea tb_aerolinea)
+        public ActionResult Create([Bind(Include = "idAerolinea,ruc,nombre,F_Modificacion,estado")] Tb_aerolinea tb_aerolinea)
         {
             if (ModelState.IsValid)
             {
@@ -54,7 +56,7 @@ namespace Proyecto_MVC.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.Estado = ObtenerEstados();
             return View(tb_aerolinea);
         }
 
@@ -70,6 +72,7 @@ namespace Proyecto_MVC.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Estado = ObtenerEstados();
             return View(tb_aerolinea);
         }
 
@@ -86,6 +89,7 @@ namespace Proyecto_MVC.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.Estado = ObtenerEstados();
             return View(tb_aerolinea);
         }
 
@@ -122,6 +126,14 @@ namespace Proyecto_MVC.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public List<SelectListItem> ObtenerEstados()
+        {
+            return new List<SelectListItem>()
+            {
+                new SelectListItem{Text = "Activo", Value = "1"},
+                new SelectListItem{Text = "Inactivo", Value = "0"},
+            };
         }
     }
 }

@@ -7,31 +7,67 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+
 namespace Proyecto_MVC.Models
 {
+
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
     public partial class Tb_aeropuerto
     {
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Tb_aeropuerto()
         {
+
             this.Tb_Destino = new HashSet<Tb_Destino>();
+
             this.Tb_vuelo = new HashSet<Tb_vuelo>();
+
         }
-    
+
+        [Display(Name = "Codigo")]
         public int idAeropuerto { get; set; }
+
+        [Display(Name = "Aeropuerto")]
         public string nombre { get; set; }
+
+        [Display(Name = "Fecha de Registro")]
         public Nullable<System.DateTime> F_Registro { get; set; }
+
+        [Display(Name = "Fecha de Modificacion")]
         public Nullable<System.DateTime> F_Modificacion { get; set; }
+
+        [Display(Name = "Estado")]
+        public String est
+        {
+            get
+            {
+                return
+                (
+                    estado == 1 ? "Activo" :
+                    "Desactivo"
+                );
+            }
+        }
         public Nullable<int> estado { get; set; }
+
+        [Display(Name = "Codigo Pais")]
         public Nullable<int> idPais { get; set; }
-    
+
+
+
         public virtual Tb_pais Tb_pais { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
         public virtual ICollection<Tb_Destino> Tb_Destino { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
         public virtual ICollection<Tb_vuelo> Tb_vuelo { get; set; }
+
     }
+
 }

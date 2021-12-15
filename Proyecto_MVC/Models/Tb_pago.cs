@@ -7,26 +7,66 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+
 namespace Proyecto_MVC.Models
 {
+
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Tb_pago
     {
+        [Display(Name = "Codigo Pago")]
         public int idPago { get; set; }
+
+        [Display(Name = "Fecha Pago")]
         public Nullable<System.DateTime> fecha { get; set; }
+
+        [Display(Name = "Tipo Comprobante")]
         public string tipo_comprobante { get; set; }
+
+        [Display(Name = "Numero Comprobante")]
         public string num_comprobante { get; set; }
+
+        [Display(Name = "Medio Pago")]
         public string medio_pago { get; set; }
+
+        [Display(Name = "Fecha de Registro")]
         public Nullable<System.DateTime> F_Registro { get; set; }
+
+        [Display(Name = "Fecha de Modificacion")]
         public Nullable<System.DateTime> F_Modificacion { get; set; }
+
+        [Display(Name = "Estado")]
+        public String est
+        {
+            get
+            {
+                return
+                (
+                    estado == 1 ? "Activo" :
+                    "Desactivo"
+                );
+            }
+        }
         public Nullable<int> estado { get; set; }
+
+        [Display(Name = "Nombre Pasajero")]
         public Nullable<int> idPasajero { get; set; }
+
+        [Display(Name = "Reserva")]
         public Nullable<int> idReserva { get; set; }
+
+        [Display(Name = "Pago Documento")]
         public string documento_pago { get; set; }
-    
+
+
+
         public virtual Tb_pasajero Tb_pasajero { get; set; }
+
         public virtual Tb_reserva Tb_reserva { get; set; }
+
     }
+
 }

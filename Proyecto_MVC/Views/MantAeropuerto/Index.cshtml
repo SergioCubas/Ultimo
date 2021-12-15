@@ -3,11 +3,11 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<br />
 <h2>Mantenimiento de Aeropuertos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Aeropuerto", "Create")
 </p>
 <table class="table">
     <tr>
@@ -21,7 +21,7 @@
             @Html.DisplayNameFor(model => model.F_Modificacion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.estado)
+            @Html.DisplayNameFor(model => model.est)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Tb_pais.nombre)
@@ -29,30 +29,31 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.F_Registro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.F_Modificacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.estado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tb_pais.nombre)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idAeropuerto }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idAeropuerto }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idAeropuerto })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.F_Registro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.F_Modificacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.est)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tb_pais.nombre)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.idAeropuerto }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.idAeropuerto }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.idAeropuerto })
+            </td>
+        </tr>
+    }
 
 </table>
 
